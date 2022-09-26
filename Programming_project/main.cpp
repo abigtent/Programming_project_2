@@ -8,17 +8,55 @@
 #include <iostream>
 using namespace std;
 
-void get_menu();
+int get_menu();
+/*void cards_and_sweets(guests);
+void coke_and_water(&coke, &water);*/
+int tables();
 int inv_guests();
 
+
 int main() {
-    get_menu();
-    int guests = inv_guests();
-    
+    int choice = 0;
+    do {
+        int choice = get_menu();
+        switch (choice) {
+            case 1:
+                inv_guests();
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            
+            case 4:
+                
+                break;
+            case 5:
+                
+                break;
+            case 6:
+                
+                break;
+            case 7:
+                
+                break;
+            case 8:
+                
+                break;
+            
+            default:
+                cout << "Please enter a valid value!" << endl;
+                break;
+        }
+    }
+    while(choice != 8);
+   
     return 0;
 }
 
-void get_menu() {
+int get_menu() {
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
     cout << "3. Determine the number of tables needed." << endl;
@@ -27,6 +65,10 @@ void get_menu() {
     cout << "6. Cost of drinks" << endl;
     cout << "7. Display all information." << endl;
     cout << "8. Quit." << endl;
+    cout << "Please enter your choice: ";
+    int choice = 0;
+    cin >> choice;
+    return choice;
 }
 
 int inv_guests() {
@@ -44,4 +86,15 @@ int inv_guests() {
     }
     return guests;
 }
+
+void cards_and_sweets() {
+    
+}
+
+int tables() {
+    
+    return 0;
+}
+
+
 
