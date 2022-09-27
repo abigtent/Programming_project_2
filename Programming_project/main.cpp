@@ -8,30 +8,36 @@
 using namespace std;
 
 int get_menu();
-/*void cards_and_sweets(guests);
-void coke_and_water(&coke, &water);*/
-int tables(int);
-int inv_guests();
-
+void inv_guests(int &guests);
+void cards_and_sweets(int &cards, int &sweets, int);
+void tables(int &tables, int);
 
 int main() {
     int choice = 0;
     do {
-        int choice = get_menu();
+        int num_guests;
+        int num_cards;
+        int num_sweets;
+        int num_tables;
+        choice = get_menu();
         switch (choice) {
             case 1:
             {
-                int guests = inv_guests();
+                inv_guests(num_guests);
+                cout << num_guests << endl;
                 break;
             }
             case 2:
             {
-                
+                cards_and_sweets(num_cards, num_sweets, num_guests);
+                cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
                 break;
             }
             case 3:
             {
-                
+                /* Assume that the capacity of each table is for 6 people. Then, the number of tables needed = number of invited guests / 6. If the number of guests does not divide evenly by 6 then you need to allocate extra table. For example, you would reserve 8 tables for 44 guests.*/
+                tables(num_tables, num_guests);
+                cout << "Tables = " << num_tables << endl;
                 break;
             }
             case 4:
@@ -85,8 +91,7 @@ int get_menu() {
     return choice;
 }
 
-int inv_guests() {
-    int guests = 0;
+void inv_guests(int &guests) {
     bool valid_int = false;
     while (valid_int != true) {
         cout << "Please declare the number of guests: " << endl;
@@ -98,16 +103,21 @@ int inv_guests() {
             cout << "Please enter an integer between 1 and 8.";
         }
     }
-    return guests;
+   
 }
 
-void cards_and_sweets() {
-    
+void cards_and_sweets(int &cards, int &sweets, int num_guests) {
+    cards = num_guests / 2;
+    sweets = num_guests * 1.2;
 }
 
-int tables() {
+void tables(int &tables, int num_guests) {
+    if (num_guests % 6 == 0) {
+        tables = num_guests / 6;
+    } else {
+        tables = (num_guests / 6) + 1;
+    }
     
-    return 0;
 }
 
 
