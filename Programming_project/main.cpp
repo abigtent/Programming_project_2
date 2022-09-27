@@ -4,14 +4,13 @@
 //
 //  Created by Henrik Reimers on 26/09/2022.
 //
-
 #include <iostream>
 using namespace std;
 
 int get_menu();
 /*void cards_and_sweets(guests);
 void coke_and_water(&coke, &water);*/
-int tables();
+int tables(int);
 int inv_guests();
 
 
@@ -21,34 +20,49 @@ int main() {
         int choice = get_menu();
         switch (choice) {
             case 1:
-                inv_guests();
+            {
+                int guests = inv_guests();
                 break;
+            }
             case 2:
+            {
                 
                 break;
+            }
             case 3:
+            {
                 
                 break;
-            
+            }
             case 4:
+            {
                 
                 break;
+            }
             case 5:
+            {
                 
                 break;
+            }
             case 6:
+            {
                 
                 break;
+            }
             case 7:
+            {
                 
                 break;
+            }
             case 8:
+            {
                 
                 break;
-            
-            default:
+            }
+            default: {
                 cout << "Please enter a valid value!" << endl;
                 break;
+            }
         }
     }
     while(choice != 8);
