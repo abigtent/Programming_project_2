@@ -148,7 +148,15 @@ void coke_and_water(int guests)
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-int card_cost(int guests)
+int card_cost(int cards)
 {
-
+    if (guests > 0)
+    {
+      
+    }
+    else
+    {
+        cout << "Please select option 1 and input the number of guests first." << endl;
+        return -1;
+    }
 }
