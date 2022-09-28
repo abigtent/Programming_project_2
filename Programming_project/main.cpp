@@ -24,7 +24,6 @@ int main() {
     int choice = 0;
     int guests;
     int coke_count, water_count;
-    bool input_guests = false;
     do {
         int num_guests;
         int num_cards;
