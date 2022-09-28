@@ -13,8 +13,8 @@ const int ppl_per_water_case = 2;
 //int main() Henrik
 int get_menu(); //Henrik
 void inv_guests(int&); //Henrik
-void cards_and_sweets(int &cards, int &sweets, int num_guests);//Benjamin
-void tables(int &tables, int num_guests); //Benjamin
+void cards_and_sweets();//Benjamin
+void tables(); //Benjamin
 void coke_and_water(int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
@@ -39,14 +39,12 @@ int main() {
             }
             case 2:
             {
-                cards_and_sweets(num_cards, num_sweets, num_guests);
-                cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
+               
                 break;
             }
             case 3:
             {
-                tables(num_tables, num_guests);
-                cout << "Tables = " << num_tables << endl;
+               
                 break;
             }
             case 4:
@@ -112,20 +110,6 @@ void inv_guests(int &guests) {
         else {
             cout << "Please enter a valid number of guests! (1+).";
         }
-    }
-}
-
-void cards_and_sweets(int &cards, int &sweets, int num_guests) {
-        cards = num_guests / 2;
-        sweets = num_guests * 1.2;
-    
-}
-
-void tables(int &tables, int num_guests) {
-    if (num_guests % 6 == 0) {
-        tables = num_guests / 6;
-    } else {
-        tables = (num_guests / 6) + 1;
     }
 }
 
