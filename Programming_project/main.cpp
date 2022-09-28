@@ -8,11 +8,15 @@
 #include <iostream>
 using namespace std;
 
-int get_menu();
-/*void cards_and_sweets(guests);
-void coke_and_water(&coke, &water);*/
-int tables();
-int inv_guests();
+//int main() Henrik
+int get_menu(); //Henrik
+int inv_guests(); //Henrik
+void cards_and_sweets(int);//Benjamin
+int tables(); //Benjamin
+void coke_and_water(&int, &int); //Chris
+int card_cost(int);//Chris
+int drink_cost(int) //Havard
+void display(); //Havard
 
 
 int main() {
