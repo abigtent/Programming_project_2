@@ -76,6 +76,7 @@ int main() {
     return 0;
 }
 
+//add while loop to error check any choices not between 1 and 8
 int get_menu() {
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
@@ -100,7 +101,7 @@ void inv_guests(int &guests) {
             valid_int = true;
         }
         else {
-            cout << "Please enter an integer between 1 and 8.";
+            cout << "Please enter a valid number of guests! (0+).";
         }
     }
    
