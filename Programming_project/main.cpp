@@ -12,7 +12,7 @@ const int ppl_per_water_case = 2;
 
 //int main() Henrik
 int get_menu(); //Henrik
-int inv_guests(); //Henrik
+int inv_guests(&int); //Henrik
 void cards_and_sweets(int);//Benjamin
 int tables(); //Benjamin
 void coke_and_water(int); //Chris
@@ -23,7 +23,7 @@ void display(); //Havard
 int main() {
     int choice = 0;
     int guests;
-    int coke_num, water_num;
+    int coke_count, water_count;
     bool input_guests = false;
     do {
         int num_guests;
@@ -111,7 +111,7 @@ void inv_guests(int &guests) {
             valid_int = true;
         }
         else {
-            cout << "Please enter a valid number of guests! (0+).";
+            cout << "Please enter a valid number of guests! (1+).";
         }
     }
    
@@ -135,9 +135,20 @@ void coke_and_water(int guests)
 {
     if (guests > 0)
     {
-        coke_num = 
+        coke_count = guests / ppl_per_coke_case;
+        if ((guests % ppl_per_coke_case) > 0)
+            bool extra_water = true;
+        water_count = guests / ppl_per_water_case;
+        if ((guests % ppl_per_water_case) > 0)
+            water_count++;
+        if (extra_water)
+            water_count++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
+int card_cost(int guests)
+{
+
+}
