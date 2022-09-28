@@ -68,7 +68,7 @@ int main() {
             }
             case 8:
             {
-                cout << "Quitting program...";
+                cout << "Quitting program..." << endl;
                 break;
             }
             default: {
@@ -84,6 +84,7 @@ int main() {
 
 //add while loop to error check any choices not between 1 and 8
 int get_menu() {
+    cout << "____________Menu____________" << endl;
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
     cout << "3. Determine the number of tables needed." << endl;
@@ -101,13 +102,13 @@ int get_menu() {
 void inv_guests(int &guests) {
     bool valid_int = false;
     while (valid_int != true) {
-        cout << "Please declare the number of guests: " << endl;
+        cout << "Please declare the number of guests: ";
         cin >> guests;
         if (guests > 0) {
             valid_int = true;
         }
         else {
-            cout << "Please enter a valid number of guests! (1+).";
+            cout << "Please enter a valid number of guests! (1+)." << endl;
         }
     }
 }
@@ -130,14 +131,16 @@ void coke_and_water(int guests)
 }
 
 int card_cost(int cards)
-{
+ {
     if (guests > 0)
     {
-      
+ 
     }
     else
     {
         cout << "Please select option 1 and input the number of guests first." << endl;
         return -1;
     }
-}
+ 
+ }
+ 
