@@ -2,8 +2,6 @@
 //  main.cpp
 //  Programming_project
 //
-//  Created by Henrik Reimers on 26/09/2022.
-//
 #include <iostream>
 using namespace std;
 
