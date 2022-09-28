@@ -13,7 +13,7 @@ int get_menu(); //Henrik ferdig
 int inv_guests(); //Henrik ferdig
 void cards_and_sweets();//Benjamin: ferdig, må bare endre variabelnavn
 void tables(); //Benjamin: ferdig, må bare endre variabelnavn
-void coke_and_water(int); //Chris
+void coke_and_water(int& water, int& coke, int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
 void display(); //Havard
@@ -21,7 +21,8 @@ void display(); //Havard
 int main() {
     int choice = 0;
     int guests = 0;
-    int coke_count, water_count;
+    int coke_count = 0;
+    int water_count = 0;
     do {
         choice = get_menu();
         switch (choice) {
@@ -42,6 +43,8 @@ int main() {
             }
             case 4:
             {
+                coke_and_water(coke_count, water_count, guests);
+                cout << coke_count << "  " << water_count << endl;
                 
                 break;
             }
@@ -109,24 +112,25 @@ int inv_guests() {
     return guests;
 }
 
-void coke_and_water(int guests)
+void coke_and_water(int& water, int& coke, int guests)
 {
+    bool extra_water = false;
     if (guests > 0)
     {
-        coke_count = guests / ppl_per_coke_case;
+        coke = guests / ppl_per_coke_case;
         if ((guests % ppl_per_coke_case) > 0)
             bool extra_water = true;
-        water_count = guests / ppl_per_water_case;
+        water = guests / ppl_per_water_case;
         if ((guests % ppl_per_water_case) > 0)
-            water_count++;
+            water++;
         if (extra_water)
-            water_count++;
+            water++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-int card_cost(int cards)
+/*int card_cost(int cards)
  {
     if (guests > 0)
     {
@@ -139,5 +143,5 @@ int card_cost(int cards)
     }
  
  }
- 
+ */
 
