@@ -25,10 +25,6 @@ int main() {
     int guests = 0;
     int coke_count, water_count;
     do {
-        int num_guests;
-        int num_cards;
-        int num_sweets;
-        int num_tables;
         choice = get_menu();
         switch (choice) {
             case 1:
@@ -146,3 +142,4 @@ int card_cost(int cards)
  
  }
  
+
