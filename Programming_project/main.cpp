@@ -14,6 +14,7 @@ void tables(int &tables, int);
 
 int main() {
     int choice = 0;
+    bool input_guests = false;
     do {
         int num_guests;
         int num_cards;
@@ -35,7 +36,6 @@ int main() {
             }
             case 3:
             {
-                /* Assume that the capacity of each table is for 6 people. Then, the number of tables needed = number of invited guests / 6. If the number of guests does not divide evenly by 6 then you need to allocate extra table. For example, you would reserve 8 tables for 44 guests.*/
                 tables(num_tables, num_guests);
                 cout << "Tables = " << num_tables << endl;
                 break;
