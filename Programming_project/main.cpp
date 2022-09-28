@@ -11,6 +11,10 @@ int get_menu();
 void inv_guests(int &guests);
 void cards_and_sweets(int &cards, int &sweets, int);
 void tables(int &tables, int);
+void coke_and_water(int&, int&); //Chris
+int card_cost(int);//Chris
+int drink_cost(int); //Havard
+void display(); //Havard
 
 int main() {
     int choice = 0;
