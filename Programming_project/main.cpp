@@ -56,7 +56,10 @@ int main() {
     return 0;
 }
 
+<<<<<<< HEAD
 //add while loop to error check any choices not between 1 and 8
+=======
+>>>>>>> 668db03d4a76be4be97cc5c5647f6dc20debbb81
 int get_menu() {
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
