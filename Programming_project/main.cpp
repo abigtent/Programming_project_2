@@ -18,7 +18,6 @@ void display(); //Havard
 
 int main() {
     int choice = 0;
-    bool input_guests = false;
     do {
         int num_guests;
         int num_cards;
@@ -29,13 +28,12 @@ int main() {
             case 1:
             {
                 inv_guests(num_guests);
-                cout << num_guests << endl;
                 break;
             }
             case 2:
             {
-                cards_and_sweets(num_cards, num_sweets, num_guests);
-                cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
+                    cards_and_sweets(num_cards, num_sweets, num_guests);
+                    cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
                 break;
             }
             case 3:
@@ -66,11 +64,11 @@ int main() {
             }
             case 8:
             {
-                
+                cout << "Quitting program...";
                 break;
             }
             default: {
-                cout << "Please enter a valid value!" << endl;
+                cout << "Please enter a value between 1 and 8!" << endl;
                 break;
             }
         }
@@ -108,12 +106,12 @@ void inv_guests(int &guests) {
             cout << "Please enter a valid number of guests! (0+).";
         }
     }
-   
 }
 
 void cards_and_sweets(int &cards, int &sweets, int num_guests) {
-    cards = num_guests / 2;
-    sweets = num_guests * 1.2;
+        cards = num_guests / 2;
+        sweets = num_guests * 1.2;
+    
 }
 
 void tables(int &tables, int num_guests) {
@@ -122,8 +120,11 @@ void tables(int &tables, int num_guests) {
     } else {
         tables = (num_guests / 6) + 1;
     }
-    
 }
+
+
+    
+
 
 
 
