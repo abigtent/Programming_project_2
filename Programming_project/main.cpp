@@ -12,9 +12,9 @@ const int ppl_per_water_case = 2;
 
 //int main() Henrik
 int get_menu(); //Henrik
-int inv_guests(&int); //Henrik
-void cards_and_sweets(int);//Benjamin
-int tables(); //Benjamin
+void inv_guests(int&); //Henrik
+void cards_and_sweets(int &cards, int &sweets, int num_guests);//Benjamin
+void tables(int &tables, int num_guests); //Benjamin
 void coke_and_water(int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
@@ -39,8 +39,8 @@ int main() {
             }
             case 2:
             {
-                    cards_and_sweets(num_cards, num_sweets, num_guests);
-                    cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
+                cards_and_sweets(num_cards, num_sweets, num_guests);
+                cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
                 break;
             }
             case 3:
