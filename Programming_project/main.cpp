@@ -14,7 +14,7 @@ const int ppl_per_water_case = 2;
 int get_menu(); //Henrik
 void inv_guests(int&); //Henrik
 void cards_and_sweets();//Benjamin
-void tables(); //Benjamin
+void tables(); //Benjamin ferdig, må bare endre variabelnavn
 void coke_and_water(int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
