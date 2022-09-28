@@ -12,7 +12,7 @@ const int ppl_per_water_case = 2;
 
 //int main() Henrik
 int get_menu(); //Henrik
-void inv_guests(int&); //Henrik
+int inv_guests(); //Henrik
 void cards_and_sweets();//Benjamin
 void tables(); //Benjamin ferdig, må bare endre variabelnavn
 void coke_and_water(int); //Chris
@@ -22,7 +22,7 @@ void display(); //Havard
 
 int main() {
     int choice = 0;
-    int guests;
+    int guests = 0;
     int coke_count, water_count;
     do {
         int num_guests;
@@ -33,12 +33,12 @@ int main() {
         switch (choice) {
             case 1:
             {
-                inv_guests(num_guests);
+                guests = inv_guests();
                 break;
             }
             case 2:
             {
-               
+                cout << guests << endl;
                 break;
             }
             case 3:
@@ -99,7 +99,8 @@ int get_menu() {
     return choice;
 }
 
-void inv_guests(int &guests) {
+int inv_guests() {
+    int guests = 0;
     bool valid_int = false;
     while (valid_int != true) {
         cout << "Please declare the number of guests: ";
@@ -111,6 +112,7 @@ void inv_guests(int &guests) {
             cout << "Please enter a valid number of guests! (1+)." << endl;
         }
     }
+    return guests;
 }
 
 void coke_and_water(int guests)
