@@ -8,12 +8,15 @@
 #include <iostream>
 using namespace std;
 
+const int ppl_per_coke_case = 6;
+const int ppl_per_water_case = 2;
+
 //int main() Henrik
 int get_menu(); //Henrik
 int inv_guests(); //Henrik
 void cards_and_sweets(int);//Benjamin
 int tables(); //Benjamin
-void coke_and_water(&int, &int); //Chris
+void coke_and_water(int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int) //Havard
 void display(); //Havard
@@ -22,6 +25,7 @@ void display(); //Havard
 int main() {
     int choice = 0;
     int guests;
+    int coke_num, water_num;
     do {
         int choice = get_menu();
         switch (choice) {
@@ -101,5 +105,13 @@ int tables() {
     return 0;
 }
 
-
+void coke_and_water(int guests)
+{
+    if (guests > 0)
+    {
+        coke_num = 
+    }
+    else
+        cout << "Please select option 1 and input the number of guests first." << endl;
+}
 
