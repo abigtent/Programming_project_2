@@ -17,11 +17,12 @@ int inv_guests();
 
 int main() {
     int choice = 0;
+    int guests;
     do {
         int choice = get_menu();
         switch (choice) {
             case 1:
-                inv_guests();
+                guests = inv_guests();
                 break;
             case 2:
                 
@@ -29,7 +30,6 @@ int main() {
             case 3:
                 
                 break;
-            
             case 4:
                 
                 break;
@@ -47,7 +47,7 @@ int main() {
                 break;
             
             default:
-                cout << "Please enter a valid value!" << endl;
+                cout << "Please enter a value between 1 and 8!" << endl;
                 break;
         }
     }
@@ -57,7 +57,6 @@ int main() {
 }
 
 //add while loop to error check any choices not between 1 and 8
-
 int get_menu() {
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
@@ -83,7 +82,7 @@ int inv_guests() {
             valid_int = true;
         }
         else {
-            cout << "Please enter an integer between 1 and 8.";
+            cout << "Please enter a valid number of guests! (0+).";
         }
     }
     return guests;
