@@ -4,7 +4,6 @@
 //
 //  Created by Henrik Reimers on 26/09/2022.
 //
-
 #include <iostream>
 using namespace std;
 
@@ -18,45 +17,68 @@ void cards_and_sweets(int);//Benjamin
 int tables(); //Benjamin
 void coke_and_water(int); //Chris
 int card_cost(int);//Chris
-int drink_cost(int) //Havard
+int drink_cost(int); //Havard
 void display(); //Havard
-
 
 int main() {
     int choice = 0;
     int guests;
     int coke_num, water_num;
+    bool input_guests = false;
     do {
-        int choice = get_menu();
+        int num_guests;
+        int num_cards;
+        int num_sweets;
+        int num_tables;
+        choice = get_menu();
         switch (choice) {
             case 1:
-                guests = inv_guests();
+            {
+                inv_guests(num_guests);
+                cout << num_guests << endl;
                 break;
+            }
             case 2:
-                
+            {
+                cards_and_sweets(num_cards, num_sweets, num_guests);
+                cout << "Cards = " << num_cards << "    " << "Sweets = " << num_sweets << endl;
                 break;
+            }
             case 3:
-                
+            {
+                tables(num_tables, num_guests);
+                cout << "Tables = " << num_tables << endl;
                 break;
+            }
             case 4:
+            {
                 
                 break;
+            }
             case 5:
+            {
                 
                 break;
+            }
             case 6:
+            {
                 
                 break;
+            }
             case 7:
+            {
                 
                 break;
+            }
             case 8:
+            {
                 
                 break;
-            
-            default:
-                cout << "Please enter a value between 1 and 8!" << endl;
+            }
+            default: {
+                cout << "Please enter a valid value!" << endl;
                 break;
+            }
         }
     }
     while(choice != 8);
@@ -80,8 +102,7 @@ int get_menu() {
     return choice;
 }
 
-int inv_guests() {
-    int guests = 0;
+void inv_guests(int &guests) {
     bool valid_int = false;
     while (valid_int != true) {
         cout << "Please declare the number of guests: " << endl;
@@ -93,16 +114,21 @@ int inv_guests() {
             cout << "Please enter a valid number of guests! (0+).";
         }
     }
-    return guests;
+   
 }
 
-void cards_and_sweets() {
-    
+void cards_and_sweets(int &cards, int &sweets, int num_guests) {
+    cards = num_guests / 2;
+    sweets = num_guests * 1.2;
 }
 
-int tables() {
+void tables(int &tables, int num_guests) {
+    if (num_guests % 6 == 0) {
+        tables = num_guests / 6;
+    } else {
+        tables = (num_guests / 6) + 1;
+    }
     
-    return 0;
 }
 
 void coke_and_water(int guests)
