@@ -5,8 +5,10 @@
 #include <iostream>
 using namespace std;
 
-const int ppl_per_coke_case = 6;
-const int ppl_per_water_case = 2;
+const int PPL_PER_COKE_CASE = 6;
+const int PPL_PER_WATER_CASE = 2;
+const int COST_COKE = 30;
+const int COST_WATER = 20;
 
 //int main() Henrik
 int get_menu(); //Henrik ferdig
@@ -21,6 +23,9 @@ void display(); //Havard
 int main() {
     int choice = 0;
     int guests = 0;
+    int tables = 0;
+    int card_count = 0;
+    int sweets_count = 0;
     int coke_count = 0;
     int water_count = 0;
     do {
@@ -44,13 +49,11 @@ int main() {
             case 4:
             {
                 coke_and_water(coke_count, water_count, guests);
-                cout << coke_count << "  " << water_count << endl;
-                
+                cout << "You need to order " << coke_count << " coke cases and " << water_count << " water cases." << endl;
                 break;
             }
             case 5:
             {
-                
                 break;
             }
             case 6:
@@ -112,16 +115,16 @@ int inv_guests() {
     return guests;
 }
 
-void coke_and_water(int& water, int& coke, int guests)
+void coke_and_water(int& coke, int& water, int guests)
 {
-    bool extra_water = false;
     if (guests > 0)
     {
-        coke = guests / ppl_per_coke_case;
-        if ((guests % ppl_per_coke_case) > 0)
-            bool extra_water = true;
-        water = guests / ppl_per_water_case;
-        if ((guests % ppl_per_water_case) > 0)
+        bool extra_water = false;
+        coke = guests / PPL_PER_COKE_CASE;
+        if ((guests % PPL_PER_COKE_CASE) > 0)
+            extra_water = true;
+        water = guests / PPL_PER_WATER_CASE;
+        if ((guests % PPL_PER_WATER_CASE) > 0)
             water++;
         if (extra_water)
             water++;
