@@ -1,8 +1,6 @@
 //
 //  main.cpp
-//  Programming_project
-//
-//  Created by Henrik Reimers on 26/09/2022.
+//  Wedding planner
 //
 #include <iostream>
 #include <cmath>
@@ -11,17 +9,18 @@ using namespace std;
 const int PPL_PER_COKE_CASE = 6;
 const int PPL_PER_WATER_CASE = 2;
 
-//int main() Henrik
-int get_menu(); //Henrik
-int inv_guests(); //Henrik
-void cards_and_sweets(int&, int&, int);//Benjamin: ferdig, må bare endre variabelnavn
-int num_tables(int); //Benjamin: ferdig, må bare endre variabelnavn
-int CalcSweets(int, double, int, string d);
+//int main() Henrik, WIP
+int get_menu(); //Henrik, ferdig
+int inv_guests(); //Henrik, ferdig
+void cards_and_sweets(int&, int&, int);//Benjamin: ferdig
+int num_tables(int); //Benjamin: ferdig
+int CalcSweets(int, double, int, string d); // Benjamin
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
-void coke_and_water(int&, int&, int); //Chris
-int card_cost(int);//Chris
-int drink_cost(int); //Havard
-void display(); //Havard
+void coke_and_water(int&, int&, int); //Chris, ferdig
+int card_cost(int);//Chris, WIP
+int drink_cost(int); //Havard, WIP
+void display(); //Havard, WIP
+
 int main() {
     int guests = 0;
     int choice = 0;
@@ -41,7 +40,6 @@ int main() {
         case 2:
         {
             cards_and_sweets(cards, sweets, guests);
-            cout << cards << "  "<< sweets << endl;
             break;
         }
         case 3:
@@ -52,7 +50,6 @@ int main() {
         case 4:
         {
             coke_and_water(coke, water, guests);
-            cout << coke << "   " << water << endl;
             break;
         }
         case 5:
@@ -81,11 +78,9 @@ int main() {
         }
         }
     } while (choice != 8);
-
     return 0;
 }
 
-//add while loop to error check any choices not between 1 and 8
 int get_menu() {
     cout << "____________Menu____________" << endl;
     cout << "1. Enter number of invited guests." << endl;
@@ -124,20 +119,18 @@ void cards_and_sweets(int& cards, int& sweets, int guests)
 	int Sweets = 0;
 	string cardsMsg = " Card(s) are needed.";
 	string sweetsMsg = " Sweet(s) are needed.";
-
 	double TimesCandy = 1.2;
 	if (guests > 0)
 	{
 		cards = CalcModulus(guests, 2, CardsNeeded, cardsMsg);
 		sweets = CalcSweets(guests, TimesCandy, Sweets, sweetsMsg);
-
 	}
 	else
 	{
 		cout << "Please select option 1 and input the number of guests first." << endl;
 	}
-
 }
+
 int num_tables(int guests)
 {
 	int tables = 0;
@@ -145,16 +138,15 @@ int num_tables(int guests)
 
 	if (guests > 0)
 	{
-
 		const int SeatsPerTable = 6;
 		tables = CalcModulus(guests, SeatsPerTable, tables, tableMsg);
 		return tables;
 	}
 	else
 		cout << "Please select option 1 and input the number of guests first." << endl;
-
-	return -1;
+        return tables;
 }
+
 int CalcModulus(int a, int b, int c, string d)
 {
 	int temp = a / b;
@@ -167,6 +159,7 @@ int CalcModulus(int a, int b, int c, string d)
 	cout << c << d << endl;
 	return c;
 }
+
 int CalcSweets(int a, double b, int c, string d)
 {
 
@@ -184,8 +177,6 @@ int CalcSweets(int a, double b, int c, string d)
 	cout << c << d << endl;
 	return c;
 }
-
-
 
 void coke_and_water(int& coke, int& water, int guests)
 {
