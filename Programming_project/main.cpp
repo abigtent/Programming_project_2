@@ -14,8 +14,8 @@ const int PPL_PER_WATER_CASE = 2;
 //int main() Henrik
 int get_menu(); //Henrik
 int inv_guests(); //Henrik
-int cards_and_sweets();//Benjamin: ferdig, må bare endre variabelnavn
-int tables(); //Benjamin: ferdig, må bare endre variabelnavn
+void cards_and_sweets(int&, int&, int);//Benjamin: ferdig, må bare endre variabelnavn
+int num_tables(int); //Benjamin: ferdig, må bare endre variabelnavn
 int CalcSweets(int, double, int, string d);
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&); //Chris
@@ -27,8 +27,9 @@ int main() {
     int choice = 0;
     int coke = 0;
     int water = 0;
-    int num_cards_and_sweets = 0;
-    int num_tables = 0;
+    int sweets = 0;
+    int cards = 0;
+    int tables = 0;
     do {
         choice = get_menu();
         switch (choice) {
@@ -39,20 +40,18 @@ int main() {
         }
         case 2:
         {
-            num_cards_and_sweets = cards_and_sweets();
-            cout << guests << endl;
+            cards_and_sweets(cards, sweets, guests);
+            cout << cards << "  "<< sweets << endl;
             break;
         }
         case 3:
         {
-            num_tables = tables();
-            cout << guests << endl;
-
+            tables = num_tables(guests);
             break;
         }
         case 4:
         {
-
+            
             break;
         }
         case 5:
@@ -118,7 +117,7 @@ int inv_guests() {
     return guests;
 }
 
-int cards_and_sweets(int guests)
+void cards_and_sweets(int& cards, int& sweets, int guests)
 {
 	int CardsNeeded = 0;
 	int Sweets = 0;
@@ -128,29 +127,27 @@ int cards_and_sweets(int guests)
 	double TimesCandy = 1.2;
 	if (guests > 0)
 	{
-		CalcModulus(guests, 2, CardsNeeded, cardsMsg);
-		CalcSweets(guests, TimesCandy, Sweets, sweetsMsg);
-		return CardsNeeded;
-		return Sweets;
+		cards = CalcModulus(guests, 2, CardsNeeded, cardsMsg);
+		sweets = CalcSweets(guests, TimesCandy, Sweets, sweetsMsg);
+
 	}
 	else
 	{
 		cout << "Please select option 1 and input the number of guests first." << endl;
-		return -1;
 	}
 
 }
-int tables(int guests)
+int num_tables(int guests)
 {
-	int Table = 0;
+	int tables = 0;
 	string tableMsg = " Table(s) are needed.";
 
 	if (guests > 0)
 	{
 
 		const int SeatsPerTable = 6;
-		CalcModulus(guests, SeatsPerTable, Table, tableMsg);
-		return Table;
+		tables = CalcModulus(guests, SeatsPerTable, tables, tableMsg);
+		return tables;
 	}
 	else
 		cout << "Please select option 1 and input the number of guests first." << endl;
