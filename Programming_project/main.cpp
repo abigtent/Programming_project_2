@@ -18,7 +18,7 @@ void cards_and_sweets(int&, int&, int);//Benjamin: ferdig, må bare endre variab
 int num_tables(int); //Benjamin: ferdig, må bare endre variabelnavn
 int CalcSweets(int, double, int, string d);
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
-void coke_and_water(int&, int&); //Chris
+void coke_and_water(int&, int&, int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
 void display(); //Havard
@@ -51,7 +51,8 @@ int main() {
         }
         case 4:
         {
-            
+            coke_and_water(coke, water, guests);
+            cout << coke << "   " << water << endl;
             break;
         }
         case 5:
@@ -186,7 +187,7 @@ int CalcSweets(int a, double b, int c, string d)
 
 
 
-void coke_and_water(int coke, int water, int guests)
+void coke_and_water(int& coke, int& water, int guests)
 {
     if (guests > 0)
     {
