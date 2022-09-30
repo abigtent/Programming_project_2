@@ -2,83 +2,85 @@
 //  main.cpp
 //  Programming_project
 //
+//  Created by Henrik Reimers on 26/09/2022.
+//
 #include <iostream>
 using namespace std;
 
-const int PPL_PER_COKE_CASE = 6;
-const int PPL_PER_WATER_CASE = 2;
-const int COST_COKE = 30;
-const int COST_WATER = 20;
+const int ppl_per_coke_case = 6;
+const int ppl_per_water_case = 2;
 
 //int main() Henrik
-int get_menu(); //Henrik ferdig
-int inv_guests(); //Henrik ferdig
-void cards_and_sweets();//Benjamin: ferdig, må bare endre variabelnavn
-void tables(); //Benjamin: ferdig, må bare endre variabelnavn
-void coke_and_water(int& water, int& coke, int); //Chris
+int get_menu(); //Henrik
+int inv_guests(); //Henrik
+int cards_and_sweets();//Benjamin: ferdig, må bare endre variabelnavn
+int tables(); //Benjamin: ferdig, må bare endre variabelnavn
+int CalcSweets(int, double, int, string d);
+int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
+void coke_and_water(int); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
 void display(); //Havard
-
+int guests = 0;
 int main() {
     int choice = 0;
-    int guests = 0;
-    int tables = 0;
-    int card_count = 0;
-    int sweets_count = 0;
-    int coke_count = 0;
-    int water_count = 0;
+    int coke_count, water_count;
     do {
+        int num_guests;
+        int num_cards_and_sweets;
+        int num_tables;
         choice = get_menu();
         switch (choice) {
-            case 1:
-            {
-                guests = inv_guests();
-                break;
-            }
-            case 2:
-            {
-                cout << guests << endl;
-                break;
-            }
-            case 3:
-            {
-               
-                break;
-            }
-            case 4:
-            {
-                coke_and_water(coke_count, water_count, guests);
-                cout << "You need to order " << coke_count << " coke cases and " << water_count << " water cases." << endl;
-                break;
-            }
-            case 5:
-            {
-                break;
-            }
-            case 6:
-            {
-                
-                break;
-            }
-            case 7:
-            {
-                
-                break;
-            }
-            case 8:
-            {
-                cout << "Quitting program..." << endl;
-                break;
-            }
-            default: {
-                cout << "Please enter a value between 1 and 8!" << endl;
-                break;
-            }
+        case 1:
+        {
+            guests = inv_guests();
+            break;
         }
-    }
-    while(choice != 8);
-   
+        case 2:
+        {
+            num_cards_and_sweets = cards_and_sweets();
+            cout << guests << endl;
+            break;
+        }
+        case 3:
+        {
+            num_tables = tables();
+            cout << guests << endl;
+
+            break;
+        }
+        case 4:
+        {
+
+            break;
+        }
+        case 5:
+        {
+
+            break;
+        }
+        case 6:
+        {
+
+            break;
+        }
+        case 7:
+        {
+
+            break;
+        }
+        case 8:
+        {
+            cout << "Quitting program..." << endl;
+            break;
+        }
+        default: {
+            cout << "Please enter a value between 1 and 8!" << endl;
+            break;
+        }
+        }
+    } while (choice != 8);
+
     return 0;
 }
 
@@ -115,36 +117,104 @@ int inv_guests() {
     return guests;
 }
 
-void coke_and_water(int& coke, int& water, int guests)
+int cards_and_sweets()
+{
+	int CardsNeeded = 0;
+	int Sweets = 0;
+	string cardsMsg = " Card(s) are needed.";
+	string sweetsMsg = " Sweet(s) are needed.";
+
+	double TimesCandy = 1.2;
+	if (guests > 0)
+	{
+		CalcModulus(guests, 2, CardsNeeded, cardsMsg);
+		CalcSweets(guests, TimesCandy, Sweets, sweetsMsg);
+		return CardsNeeded;
+		return Sweets;
+	}
+	else
+	{
+		cout << "Please select option 1 and input the number of guests first." << endl;
+		return -1;
+	}
+
+}
+int tables()
+{
+	int Table = 0;
+	string tableMsg = " Table(s) are needed.";
+
+	if (guests > 0)
+	{
+
+		const int SeatsPerTable = 6;
+		CalcModulus(guests, SeatsPerTable, Table, tableMsg);
+		return Table;
+	}
+	else
+		cout << "Please select option 1 and input the number of guests first." << endl;
+
+	return -1;
+}
+int CalcModulus(int a, int b, int c, string d)
+{
+	int temp = a / b;
+	if (a % b > 0)
+	{
+		temp++;
+		c = temp;
+	}
+	c = temp;
+	cout << c << d << endl;
+	return c;
+}
+int CalcSweets(int a, double b, int c, string d)
+{
+
+	double temp = a * b;
+	if (((a * b) / round(a * b)) > 1 || ((a * b) / round(a * b)) < 1)
+	{
+		temp++;
+		c = temp;
+	}
+	else if (((a * b) / round(a * b)) == 1) {
+		
+		c = temp;
+	}
+
+	cout << c << d << endl;
+	return c;
+}
+
+
+
+void coke_and_water(int guests)
 {
     if (guests > 0)
     {
-        bool extra_water = false;
-        coke = guests / PPL_PER_COKE_CASE;
-        if ((guests % PPL_PER_COKE_CASE) > 0)
-            extra_water = true;
-        water = guests / PPL_PER_WATER_CASE;
-        if ((guests % PPL_PER_WATER_CASE) > 0)
-            water++;
+        coke_count = guests / ppl_per_coke_case;
+        if ((guests % ppl_per_coke_case) > 0)
+            bool extra_water = true;
+        water_count = guests / ppl_per_water_case;
+        if ((guests % ppl_per_water_case) > 0)
+            water_count++;
         if (extra_water)
-            water++;
+            water_count++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-/*int card_cost(int cards)
- {
+int card_cost(int cards)
+{
     if (guests > 0)
     {
- 
+
     }
     else
     {
         cout << "Please select option 1 and input the number of guests first." << endl;
         return -1;
     }
- 
- }
- */
 
+}
