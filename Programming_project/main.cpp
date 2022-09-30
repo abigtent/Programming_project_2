@@ -22,13 +22,7 @@ int drink_cost(int); //Havard, WIP
 void display(); //Havard, WIP
 
 int main() {
-    int guests = 0;
-    int choice = 0;
-    int coke = 0;
-    int water = 0;
-    int sweets = 0;
-    int cards = 0;
-    int tables = 0;
+    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, tables = 0;
     do {
         choice = get_menu();
         switch (choice) {
