@@ -5,10 +5,11 @@
 //  Created by Henrik Reimers on 26/09/2022.
 //
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-const int ppl_per_coke_case = 6;
-const int ppl_per_water_case = 2;
+const int PPL_PER_COKE_CASE = 6;
+const int PPL_PER_WATER_CASE = 2;
 
 //int main() Henrik
 int get_menu(); //Henrik
@@ -17,18 +18,18 @@ int cards_and_sweets();//Benjamin: ferdig, må bare endre variabelnavn
 int tables(); //Benjamin: ferdig, må bare endre variabelnavn
 int CalcSweets(int, double, int, string d);
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
-void coke_and_water(int); //Chris
+void coke_and_water(int&, int&); //Chris
 int card_cost(int);//Chris
 int drink_cost(int); //Havard
 void display(); //Havard
-int guests = 0;
 int main() {
+    int guests = 0;
     int choice = 0;
-    int coke_count, water_count;
+    int coke = 0;
+    int water = 0;
+    int num_cards_and_sweets = 0;
+    int num_tables = 0;
     do {
-        int num_guests;
-        int num_cards_and_sweets;
-        int num_tables;
         choice = get_menu();
         switch (choice) {
         case 1:
@@ -117,7 +118,7 @@ int inv_guests() {
     return guests;
 }
 
-int cards_and_sweets()
+int cards_and_sweets(int guests)
 {
 	int CardsNeeded = 0;
 	int Sweets = 0;
@@ -139,7 +140,7 @@ int cards_and_sweets()
 	}
 
 }
-int tables()
+int tables(int guests)
 {
 	int Table = 0;
 	string tableMsg = " Table(s) are needed.";
@@ -188,24 +189,25 @@ int CalcSweets(int a, double b, int c, string d)
 
 
 
-void coke_and_water(int guests)
+void coke_and_water(int coke, int water, int guests)
 {
     if (guests > 0)
     {
-        coke_count = guests / ppl_per_coke_case;
-        if ((guests % ppl_per_coke_case) > 0)
+        bool extra_water = false;
+        coke = guests / PPL_PER_COKE_CASE;
+        if ((guests % PPL_PER_COKE_CASE) > 0)
             bool extra_water = true;
-        water_count = guests / ppl_per_water_case;
-        if ((guests % ppl_per_water_case) > 0)
-            water_count++;
+        water = guests / PPL_PER_WATER_CASE;
+        if ((guests % PPL_PER_WATER_CASE) > 0)
+            water++;
         if (extra_water)
-            water_count++;
+            water++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-int card_cost(int cards)
+/*int card_cost(int cards)
 {
     if (guests > 0)
     {
@@ -218,3 +220,4 @@ int card_cost(int cards)
     }
 
 }
+*/
