@@ -15,7 +15,7 @@ int CalcSweets(int, double, int, string d); // Benjamin
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&, int); //Chris, ferdig
 int card_cost(int, int);//Chris, WIP
-int drink_cost(int); //Havard, WIP
+int drink_cost(int, int); //Havard, WIP
 void display(); //Havard, WIP
 
 int main() {
@@ -196,7 +196,7 @@ void coke_and_water(int& coke, int& water, int guests)
 
 int card_cost(int cards, int guests)
 {
-    if (guests > 0)
+    if (cards > 0 || guests > 0)
     {
         const int cardPrice = 200;
         int cardCost = cards * cardPrice;
