@@ -6,9 +6,6 @@
 #include <cmath>
 using namespace std;
 
-const int PPL_PER_COKE_CASE = 6;
-const int PPL_PER_WATER_CASE = 2;
-
 //int main() Henrik, WIP
 int get_menu(); //Henrik, ferdig
 int inv_guests(); //Henrik, ferdig
@@ -22,7 +19,7 @@ int drink_cost(int); //Havard, WIP
 void display(); //Havard, WIP
 
 int main() {
-    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, tables = 0;
+    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0;
     do {
         choice = get_menu();
         switch (choice) {
@@ -48,17 +45,17 @@ int main() {
         }
         case 5:
         {
-
+            cardCost = card_cost(cards)
             break;
         }
         case 6:
         {
-
+            cout << "WIP" << endl;
             break;
         }
         case 7:
         {
-
+            cout << "WIP" << endl;
             break;
         }
         case 8:
@@ -176,6 +173,8 @@ void coke_and_water(int& coke, int& water, int guests)
 {
     if (guests > 0)
     {
+        const int PPL_PER_COKE_CASE = 6;
+        const int PPL_PER_WATER_CASE = 2;
         bool extra_water = false;
         coke = guests / PPL_PER_COKE_CASE;
         if ((guests % PPL_PER_COKE_CASE) > 0)
@@ -190,17 +189,19 @@ void coke_and_water(int& coke, int& water, int guests)
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-/*int card_cost(int cards)
+int card_cost(int cards)
 {
     if (guests > 0)
     {
-
+        const int cardPrice = 200;
+        int cardCost = cards * cardPrice;
+        return cardCost;
     }
     else
     {
-        cout << "Please select option 1 and input the number of guests first." << endl;
-        return -1;
+        cout << "Please select option 1 and input the number of guests, then option 2 to determine Qty of cards needed." << endl;
+        return 0;
     }
 
 }
-*/
+
