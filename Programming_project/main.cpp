@@ -41,11 +41,13 @@ int main() {
         case 4:
         {
             coke_and_water(coke, water, guests);
+            cout << "Drink Order: \nCokes: " << coke << "\nWaters: " << water << endl;
             break;
         }
         case 5:
         {
             cardCost = card_cost(cards, guests);
+            cout << "Price for " << cards << " cards: $" << cardcost << endl;
             break;
         }
         case 6:
@@ -73,6 +75,7 @@ int main() {
 }
 
 int get_menu() {
+    cout << "____________________________" << endl;
     cout << "____________Menu____________" << endl;
     cout << "1. Enter number of invited guests." << endl;
     cout << "2. Determine the number of invitation cards and sweets." << endl;
@@ -174,17 +177,18 @@ void coke_and_water(int& coke, int& water, int guests)
 {
     if (guests > 0)
     {
+        //Removed extra water from this as it does not state to add extra water for the coke calc.
         const int PPL_PER_COKE_CASE = 6;
         const int PPL_PER_WATER_CASE = 2;
-        bool extra_water = false;
+        //bool extra_water = false;
         coke = guests / PPL_PER_COKE_CASE;
-        if ((guests % PPL_PER_COKE_CASE) > 0)
-            bool extra_water = true;
+        //if ((guests % PPL_PER_COKE_CASE) > 0)
+            //bool extra_water = true;
         water = guests / PPL_PER_WATER_CASE;
         if ((guests % PPL_PER_WATER_CASE) > 0)
             water++;
-        if (extra_water)
-            water++;
+        //if (extra_water)
+            //water++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
