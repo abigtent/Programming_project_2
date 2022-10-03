@@ -14,7 +14,7 @@ int num_tables(int); //Benjamin: ferdig
 int CalcSweets(int, double, int, string d); // Benjamin
 int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&, int); //Chris, ferdig
-int card_cost(int);//Chris, WIP
+int card_cost(int, int);//Chris, WIP
 int drink_cost(int); //Havard, WIP
 void display(); //Havard, WIP
 
@@ -45,7 +45,7 @@ int main() {
         }
         case 5:
         {
-            cardCost = card_cost(cards)
+            cardCost = card_cost(cards, guests);
             break;
         }
         case 6:
@@ -160,7 +160,8 @@ int CalcSweets(int a, double b, int c, string d)
 		temp++;
 		c = temp;
 	}
-	else if (((a * b) / round(a * b)) == 1) {
+	else if (((a * b) / round(a * b)) == 1) 
+    {
 		
 		c = temp;
 	}
@@ -189,7 +190,7 @@ void coke_and_water(int& coke, int& water, int guests)
         cout << "Please select option 1 and input the number of guests first." << endl;
 }
 
-int card_cost(int cards)
+int card_cost(int cards, int guests)
 {
     if (guests > 0)
     {
