@@ -47,7 +47,7 @@ int main() {
         case 5:
         {
             cardCost = card_cost(cards, guests);
-            cout << "Price for " << cards << " cards: $" << cardcost << endl;
+            cout << "Price for " << cards << " cards: $" << cardCost << endl;
             break;
         }
         case 6:
