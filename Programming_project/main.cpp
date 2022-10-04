@@ -177,7 +177,7 @@ void coke_and_water(int& coke, int& water, int guests)
 {
     if (guests > 0)
     {
-        //Removed extra water from this as it does not state to add extra water for the coke calc.
+        //Removed extra water from this as it does not state to add extra water for the coke calc, only that overflow guests will swap.
         const int PPL_PER_COKE_CASE = 6;
         const int PPL_PER_WATER_CASE = 2;
         //bool extra_water = false;
