@@ -11,12 +11,12 @@ int get_menu(); //Henrik, ferdig
 int inv_guests(); //Henrik, ferdig
 void cards_and_sweets(int&, int&, int);//Benjamin: ferdig
 int num_tables(int); //Benjamin: ferdig
-int CalcSweets(int, double, int, string d); // Benjamin
-int CalcModulus(int, int, int, string d); // Benjamin: brukes i tables og i kort
+int CalcSweets(int, double); // Benjamin
+int CalcModulus(int, int); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&, int); //Chris, ferdig
 int card_cost(int, int);//Chris, WIP
-void drinks_cost(int, int, int); //Havard, WIP
-void display(int, int, int, int, int, int); //Havard, WIP
+int drink_cost(int, int); //Havard, WIP
+void display(); //Havard, WIP
 
 int main() {
     int guests = 0, choice = 0, coke_cases = 0, water_cases = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, coke_cost = 0, water_cost = 0;
@@ -117,8 +117,8 @@ void cards_and_sweets(int& cards, int& sweets, int guests)
 	double TimesCandy = 1.2;
 	if (guests > 0)
 	{
-		cards = CalcModulus(guests, 2, CardsNeeded, cardsMsg);
-		sweets = CalcSweets(guests, TimesCandy, Sweets, sweetsMsg);
+        	cards = CalcModulus(guests, 2);
+      		sweets = CalcSweets(guests, TimesCandy);
 	}
 	else
 	{
@@ -134,7 +134,7 @@ int num_tables(int guests)
 	if (guests > 0)
 	{
 		const int SeatsPerTable = 6;
-		tables = CalcModulus(guests, SeatsPerTable, tables, tableMsg);
+		tables = CalcModulus(guests, SeatsPerTable);
 		return tables;
 	}
 	else
@@ -142,36 +142,31 @@ int num_tables(int guests)
         return tables;
 }
 
-int CalcModulus(int a, int b, int c, string d)
+int CalcModulus(int a, int b)
 {
-	int temp = a / b;
-	if (a % b > 0)
-	{
-		temp++;
-		c = temp;
-	}
-	c = temp;
-	cout << c << d << endl;
-	return c;
+    int temp = a / b;
+    if (a % b > 0)
+    {
+        temp++;
+    }
+    return temp;
 }
 
-int CalcSweets(int a, double b, int c, string d)
+int CalcSweets(int a, double b)
 {
 
-	double temp = a * b;
-	if (((a * b) / round(a * b)) > 1 || ((a * b) / round(a * b)) < 1)
-	{
-		temp++;
-		c = temp;
-	}
-	else if (((a * b) / round(a * b)) == 1) 
+    double temp = a * b;
+    if (((a * b) / round(a * b)) > 1 || ((a * b) / round(a * b)) < 1)
     {
-		
-		c = temp;
-	}
+        temp++;
+        
+    }
+    else if (((a * b) / round(a * b)) == 1)
+    {
 
-	cout << c << d << endl;
-	return c;
+    }
+
+    return temp;
 }
 
 void coke_and_water(int& coke, int& water, int guests)
@@ -203,5 +198,4 @@ int card_cost(int cards, int guests)
         return 0;
     }
 }
-
 
