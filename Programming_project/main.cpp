@@ -15,11 +15,11 @@ int CalcSweets(int, double); // Benjamin
 int CalcModulus(int, int); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&, int); //Chris, ferdig
 int card_cost(int, int);//Chris, WIP
-int drink_cost(int, int); //Havard, WIP
-void display(); //Havard, WIP
+void drinks_cost(int, int, int, int&, int&); //Havard, WIP
+void display(int, int, int, int, int, int, int, int, int); //Havard, WIP
 
 int main() {
-    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0;
+    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, cokeCost = 0, waterCost = 0;
     do {
         choice = get_menu();
         switch (choice) {
@@ -41,23 +41,21 @@ int main() {
         case 4:
         {
             coke_and_water(coke, water, guests);
-            cout << "Drink Order: \nCokes: " << coke << "\nWaters: " << water << endl;
             break;
         }
         case 5:
         {
             cardCost = card_cost(cards, guests);
-            cout << "Price for " << cards << " cards: $" << cardCost << endl;
             break;
         }
         case 6:
         {
-            cout << "WIP" << endl;
+            drinks_cost(coke, water, guests, cokeCost, waterCost);
             break;
         }
         case 7:
         {
-            cout << "WIP" << endl;
+            display(guests, coke, water, sweets, cards, cardCost, tables, cokeCost, waterCost);
             break;
         }
         case 8:
@@ -109,11 +107,7 @@ int inv_guests() {
 
 void cards_and_sweets(int& cards, int& sweets, int guests)
 {
-	int CardsNeeded = 0;
-	int Sweets = 0;
-	string cardsMsg = " Card(s) are needed.";
-	string sweetsMsg = " Sweet(s) are needed.";
-	double TimesCandy = 1.2;
+	const double TimesCandy = 1.2;
 	if (guests > 0)
 	{
         	cards = CalcModulus(guests, 2);
@@ -128,17 +122,16 @@ void cards_and_sweets(int& cards, int& sweets, int guests)
 int num_tables(int guests)
 {
 	int tables = 0;
-	string tableMsg = " Table(s) are needed.";
 
 	if (guests > 0)
 	{
 		const int SeatsPerTable = 6;
 		tables = CalcModulus(guests, SeatsPerTable);
-		return tables;
 	}
 	else
 		cout << "Please select option 1 and input the number of guests first." << endl;
-        return tables;
+        
+    return tables;
 }
 
 int CalcModulus(int a, int b)
@@ -172,18 +165,12 @@ void coke_and_water(int& coke, int& water, int guests)
 {
     if (guests > 0)
     {
-        //Removed extra water from this as it does not state to add extra water for the coke calc, only that overflow guests will swap.
         const int PPL_PER_COKE_CASE = 6;
         const int PPL_PER_WATER_CASE = 2;
-        //bool extra_water = false;
         coke = guests / PPL_PER_COKE_CASE;
-        //if ((guests % PPL_PER_COKE_CASE) > 0)
-            //bool extra_water = true;
         water = guests / PPL_PER_WATER_CASE;
         if ((guests % PPL_PER_WATER_CASE) > 0)
             water++;
-        //if (extra_water)
-            //water++;
     }
     else
         cout << "Please select option 1 and input the number of guests first." << endl;
@@ -191,7 +178,7 @@ void coke_and_water(int& coke, int& water, int guests)
 
 int card_cost(int cards, int guests)
 {
-    if (cards > 0 || guests > 0)
+    if (guests > 0)
     {
         const int cardPrice = 200;
         int cardCost = cards * cardPrice;
@@ -203,5 +190,38 @@ int card_cost(int cards, int guests)
         return 0;
     }
 
+}
+
+void drinks_cost(int coke, int water, int guests, int& cokeCost, int& waterCost)
+{
+    if (guests > 0)
+    {
+        const int cokePrice = 30;
+        cokeCost = coke * cokePrice;
+
+        const int waterPrice = 20;
+        waterCost = water * waterPrice;
+    }
+    else
+    {
+        cout << "Please select option 1 and input the number of guests, then option 4 to determine Qty of drinks needed." << endl;
+    }
+}
+
+void display(int guests, int coke, int water, int sweets, int cards, int cardCost, int tables, int cokeCost, int waterCost)
+{
+    if (guests > 0)
+    {
+        cout << "The number of invited guests: " << guests << endl;
+        cout << "Needs: " << cards << " invitation cards, " << sweets << " sweets, " << tables << " tables, ";
+        cout << coke << " cases of coke and " << water << " cases of water." << endl;
+        cout << "Cost of invitation cards: " << cardCost << " NOK." << endl;
+        cout << "Cost of drinks: " << cokeCost << " NOK for Coke and " << waterCost << " NOK for water with a total of " << drinkCost << " NOK." << endl;
+
+    }
+    else
+    {
+        cout << "Please select option 1 and input the number of guests first." << endl;
+    }
 }
 
