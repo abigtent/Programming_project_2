@@ -19,7 +19,8 @@ void drinks_cost(int, int, int, int&, int&); //Havard, WIP
 void display(int, int, int, int, int, int, int, int, int); //Havard, WIP
 
 int main() {
-    int guests = 0, choice = 0, coke = 0, water = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, cokeCost = 0, waterCost = 0;
+    int guests = 0, choice = 0, coke_cases = 0, water_cases = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, coke_cost = 0, water_cost = 0;
+    cout << "The Wedding Planning Assistant is pleased to be at your service!" << endl;
     do {
         choice = get_menu();
         switch (choice) {
@@ -189,6 +190,7 @@ int card_cost(int cards, int guests)
         cout << "Please select option 1 and input the number of guests, then option 2 to determine Qty of cards needed." << endl;
         return 0;
     }
+}
 
 }
 
@@ -225,3 +227,7 @@ void display(int guests, int coke, int water, int sweets, int cards, int cardCos
     }
 }
 
+void display (int guests, int cards, int sweets, int tables, int coke_cases, int water_cases)
+{
+    
+}
