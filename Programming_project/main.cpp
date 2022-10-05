@@ -213,9 +213,9 @@ void display(int guests, int coke, int water, int sweets, int cards, int cardCos
     if (guests > 0)
     {
         cout << "The number of invited guests: " << guests << endl;
-        cout << "Needs: " << cards << " invitation cards, " << sweets << " sweets, " << tables << " tables, ";
-        cout << coke << " cases of coke and " << water << " cases of water." << endl;
-        cout << "Cost of invitation cards: " << cardCost << " NOK." << endl;
+        cout << "Needs: " << cards << " invitation card(s), " << sweets << " sweet(s), " << tables << " table(s), ";
+        cout << coke << " case(s) of coke and " << water << " case(s) of water." << endl;
+        cout << "Cost of invitation card(s): " << cardCost << " NOK." << endl;
         cout << "Cost of drinks: " << cokeCost << " NOK for Coke and " << waterCost << " NOK for water with a total of " << cokeCost + waterCost << " NOK." << endl;
 
     }
