@@ -192,9 +192,7 @@ int card_cost(int cards, int guests)
     }
 }
 
-}
-
-void drinks_cost(int coke, int water, int guests, int& cokeCost, int& waterCost)
+void drinks_cost(int coke_cases, int water_cases, int guests, int& cokeCost, int& waterCost)
 {
     if (guests > 0)
     {
@@ -202,7 +200,7 @@ void drinks_cost(int coke, int water, int guests, int& cokeCost, int& waterCost)
         cokeCost = coke_cases * cokePrice;
 
         const int waterPrice = 20;
-        waterCost = water * waterPrice;
+        waterCost = water_cases * waterPrice;
     }
     else
     {
@@ -218,7 +216,7 @@ void display(int guests, int coke, int water, int sweets, int cards, int cardCos
         cout << "Needs: " << cards << " invitation cards, " << sweets << " sweets, " << tables << " tables, ";
         cout << coke << " cases of coke and " << water << " cases of water." << endl;
         cout << "Cost of invitation cards: " << cardCost << " NOK." << endl;
-        cout << "Cost of drinks: " << cokeCost << " NOK for Coke and " << waterCost << " NOK for water with a total of " << drinkCost << " NOK." << endl;
+        cout << "Cost of drinks: " << cokeCost << " NOK for Coke and " << waterCost << " NOK for water with a total of " << cokeCost + waterCost << " NOK." << endl;
 
     }
     else
