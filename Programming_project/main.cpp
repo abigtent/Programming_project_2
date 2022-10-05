@@ -41,7 +41,7 @@ int main() {
         }
         case 4:
         {
-            coke_and_water(coke, water, guests);
+            coke_and_water(coke_cases, water_cases, guests);
             break;
         }
         case 5:
@@ -51,12 +51,12 @@ int main() {
         }
         case 6:
         {
-            drinks_cost(coke, water, guests, cokeCost, waterCost);
+            drinks_cost(coke_cases, water_cases, guests, coke_cost, water_cost);
             break;
         }
         case 7:
         {
-            display(guests, coke, water, sweets, cards, cardCost, tables, cokeCost, waterCost);
+            display(guests, coke_cases, water_cases, sweets, cards, cardCost, tables, coke_cost, water_cost);
             break;
         }
         case 8:
@@ -199,7 +199,7 @@ void drinks_cost(int coke, int water, int guests, int& cokeCost, int& waterCost)
     if (guests > 0)
     {
         const int cokePrice = 30;
-        cokeCost = coke * cokePrice;
+        cokeCost = coke_cases * cokePrice;
 
         const int waterPrice = 20;
         waterCost = water * waterPrice;
@@ -225,9 +225,4 @@ void display(int guests, int coke, int water, int sweets, int cards, int cardCos
     {
         cout << "Please select option 1 and input the number of guests first." << endl;
     }
-}
-
-void display (int guests, int cards, int sweets, int tables, int coke_cases, int water_cases)
-{
-    
 }
