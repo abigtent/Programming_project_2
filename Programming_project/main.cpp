@@ -151,10 +151,6 @@ int CalcSweets(int a, double b)
     {
         temp++;
     }
-    else if (((a * b) / round(a * b)) == 1)
-    {
-
-    }
     return temp;
 }
 
