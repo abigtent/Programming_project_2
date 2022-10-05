@@ -60,7 +60,7 @@ int main() {
         }
         case 8:
         {
-            cout << "Quitting program..." << endl;
+            cout << "Quitting program. Thank you, come again..." << endl;
             break;
         }
         default: {
