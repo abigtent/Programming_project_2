@@ -15,8 +15,8 @@ int CalcSweets(int, double); // Benjamin
 int CalcModulus(int, int); // Benjamin: brukes i tables og i kort
 void coke_and_water(int&, int&, int); //Chris, ferdig
 int card_cost(int, int);//Chris, WIP
-int drink_cost(int, int); //Havard, WIP
-void display(); //Havard, WIP
+int drinks_cost(int, int, int); //Havard, WIP
+void display(int, int, int, int, int, int); //Havard, WIP
 
 int main() {
     int guests = 0, choice = 0, coke_cases = 0, water_cases = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, coke_cost = 0, water_cost = 0;
@@ -199,3 +199,12 @@ int card_cost(int cards, int guests)
     }
 }
 
+void drinks_cost ()
+{
+    
+}
+
+void display (int guests, int cards, int sweets, int tables, int coke_cases, int water_cases)
+{
+    
+}
