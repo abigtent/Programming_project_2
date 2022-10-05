@@ -6,17 +6,16 @@
 #include <cmath>
 using namespace std;
 
-//int main() Henrik, WIP
-int get_menu(); //Henrik, ferdig
-int inv_guests(); //Henrik, ferdig
-void cards_and_sweets(int&, int&, int);//Benjamin: ferdig
-int num_tables(int); //Benjamin: ferdig
-int CalcSweets(int, double); // Benjamin
-int CalcModulus(int, int); // Benjamin: brukes i tables og i kort
-void coke_and_water(int&, int&, int); //Chris, ferdig
-int card_cost(int, int);//Chris, WIP
-void drinks_cost(int, int, int, int&, int&); //Havard, WIP
-void display(int, int, int, int, int, int, int, int, int); //Havard, WIP
+int get_menu();
+int inv_guests();
+void cards_and_sweets(int&, int&, int);
+int num_tables(int);
+int CalcSweets(int, double);
+int CalcModulus(int, int);
+void coke_and_water(int&, int&, int);
+int card_cost(int, int);
+void drinks_cost(int, int, int, int&, int&);
+void display(int, int, int, int, int, int, int, int, int);
 
 int main() {
     int guests = 0, choice = 0, coke_cases = 0, water_cases = 0, sweets = 0, cards = 0, cardCost = 0, tables = 0, coke_cost = 0, water_cost = 0;
@@ -147,18 +146,15 @@ int CalcModulus(int a, int b)
 
 int CalcSweets(int a, double b)
 {
-
     double temp = a * b;
     if (((a * b) / round(a * b)) > 1 || ((a * b) / round(a * b)) < 1)
     {
         temp++;
-        
     }
     else if (((a * b) / round(a * b)) == 1)
     {
 
     }
-
     return temp;
 }
 
@@ -217,7 +213,6 @@ void display(int guests, int coke, int water, int sweets, int cards, int cardCos
         cout << coke << " cases of coke and " << water << " cases of water." << endl;
         cout << "Cost of invitation cards: " << cardCost << " NOK." << endl;
         cout << "Cost of drinks: " << cokeCost << " NOK for Coke and " << waterCost << " NOK for water with a total of " << cokeCost + waterCost << " NOK." << endl;
-
     }
     else
     {
